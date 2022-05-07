@@ -1,5 +1,10 @@
 // See https://github.com/dialogflow/dialogflow-fulfillment-nodejs
 // for Dialogflow fulfillment library docs, samples, and to report issues
+
+//For local debug follow below steps:
+// 1. run npm run serve
+// 2. ngrock http 5001
+// 3. https://<ngrock.io url>/nagp-session2-demo1-tiwv/us-central1/dialogflowFirebaseFulfillment
 'use strict';
 
 const functions = require('firebase-functions');
