@@ -1,0 +1,110 @@
+[
+  {
+    "id": "be4dba6f-1e9c-4e05-9d9e-1fc628c94fa1",
+    "data": [
+      {
+        "text": "1AC",
+        "meta": "@TrainClass",
+        "alias": "Class",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "8aaddae6-6331-47d1-a77a-0e3a8266276c",
+    "data": [
+      {
+        "text": "Select ",
+        "userDefined": false
+      },
+      {
+        "text": "3rd",
+        "meta": "@TrainClass",
+        "alias": "Class",
+        "userDefined": false
+      },
+      {
+        "text": " class",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "8c9ecda2-b145-45ac-81c2-42783c372581",
+    "data": [
+      {
+        "text": "Book for ",
+        "userDefined": false
+      },
+      {
+        "text": "second Class",
+        "meta": "@TrainClass",
+        "alias": "Class",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "e8394a19-b184-4f44-a04f-d50ac506aa55",
+    "data": [
+      {
+        "text": "I am looking for ",
+        "userDefined": false
+      },
+      {
+        "text": "2AC",
+        "meta": "@TrainClass",
+        "alias": "Class",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "d40aa277-555a-4315-bc41-bb2d6f26cc1e",
+    "data": [
+      {
+        "text": "I want ",
+        "userDefined": false
+      },
+      {
+        "text": "1AC",
+        "meta": "@TrainClass",
+        "alias": "Class",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "575c12dc-d0a5-48f3-a25b-00565e723a36",
+    "data": [
+      {
+        "text": "Select-Class",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

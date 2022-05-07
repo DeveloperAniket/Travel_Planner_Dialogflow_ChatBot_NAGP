@@ -1,0 +1,9 @@
+{
+  "id": "3b25838d-2c00-49b1-bd4e-8c8c67800dc7",
+  "name": "TrainSeat",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}

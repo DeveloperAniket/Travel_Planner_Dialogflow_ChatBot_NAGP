@@ -1,0 +1,98 @@
+{
+  "id": "1be77e1e-676d-4a3f-a24c-1049be2005bc",
+  "parentId": "3c105ef0-e7ef-49b3-9c0e-59c4a1fbb742",
+  "rootParentId": "3c105ef0-e7ef-49b3-9c0e-59c4a1fbb742",
+  "name": "Book.Hotel - DefaultBooking",
+  "auto": true,
+  "contexts": [
+    "BookHotel-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "BookHotel.BookHotel-custom",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "28d40cac-5b31-4314-a1c5-28ef51be94d6",
+          "name": "Destination",
+          "required": true,
+          "dataType": "@sys.geo-city",
+          "defaultValue": "#BookHotel-followup.Destination",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Please provide destination for booking room."
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "d6827451-37d6-4197-b51d-41988aeefb89",
+          "name": "TravelDate",
+          "required": true,
+          "dataType": "@sys.date",
+          "defaultValue": "#BookHotel-followup.TravelDate",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "For when do you want to book the room ?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "68f12b4a-c704-4df9-adca-f9cf0c38b08b",
+          "name": "HotelName",
+          "required": false,
+          "dataType": "@HotelName",
+          "defaultValue": "#BookHotel-followup.HotelName",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Please select from the below available hotels?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Default Booking TEST #BookHotel-followup.Destination"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": true,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "BookHotel_DefaultBooking"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

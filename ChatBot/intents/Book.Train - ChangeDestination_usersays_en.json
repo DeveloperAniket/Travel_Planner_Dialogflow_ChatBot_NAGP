@@ -1,0 +1,75 @@
+[
+  {
+    "id": "b17db279-db2f-478a-899e-68649ad550bc",
+    "data": [
+      {
+        "text": "Change Destination to ",
+        "userDefined": false
+      },
+      {
+        "text": "Mumbai",
+        "meta": "@sys.geo-city",
+        "alias": "Destination",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "dfdd6cf2-e53b-4311-ad03-001f5a4a7d99",
+    "data": [
+      {
+        "text": "Mumbai",
+        "meta": "@sys.geo-city",
+        "alias": "Destination",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "d31fcdb8-5d56-419f-b9ed-3e69edb2dd2d",
+    "data": [
+      {
+        "text": "I want to change my destination",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "64092ff7-a3c1-44fb-94da-816076c20794",
+    "data": [
+      {
+        "text": "New destination",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "8662db8e-2309-4c54-ab88-73bbd4cb3af0",
+    "data": [
+      {
+        "text": "Change Destination",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

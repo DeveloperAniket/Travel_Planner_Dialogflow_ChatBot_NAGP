@@ -1,0 +1,188 @@
+[
+  {
+    "id": "690f2d62-75a9-4987-9806-a09aaa86b0d5",
+    "data": [
+      {
+        "text": "Book a ticket",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "256de05f-1b25-4614-9bc7-9d308c3fca1c",
+    "data": [
+      {
+        "text": "Train from ",
+        "userDefined": false
+      },
+      {
+        "text": "Pune",
+        "meta": "@sys.geo-city",
+        "alias": "Origin",
+        "userDefined": false
+      },
+      {
+        "text": " to ",
+        "userDefined": false
+      },
+      {
+        "text": "Mumbai",
+        "meta": "@sys.geo-city",
+        "alias": "Destination",
+        "userDefined": false
+      },
+      {
+        "text": " on ",
+        "userDefined": false
+      },
+      {
+        "text": "4th May 2022",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "7e8989cd-c0c2-4215-984f-363b225fc6b7",
+    "data": [
+      {
+        "text": "Ticket for train",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "305785db-ae9c-436a-a36e-392133df65a7",
+    "data": [
+      {
+        "text": "Please, book a ticket from ",
+        "userDefined": false
+      },
+      {
+        "text": "Pune",
+        "meta": "@sys.geo-city",
+        "alias": "Origin",
+        "userDefined": false
+      },
+      {
+        "text": " to ",
+        "userDefined": false
+      },
+      {
+        "text": "Mumbai",
+        "meta": "@sys.geo-city",
+        "alias": "Destination",
+        "userDefined": false
+      },
+      {
+        "text": " tormmorw",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "0acabbe8-1f48-4ec5-adf2-c75ab2c390ee",
+    "data": [
+      {
+        "text": "Book my train ticket",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "f8734fdd-7991-409d-a787-31831c831632",
+    "data": [
+      {
+        "text": "Reserve a ticket to ",
+        "userDefined": false
+      },
+      {
+        "text": "Mumbai",
+        "meta": "@sys.geo-city",
+        "alias": "Destination",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "69ba087e-2df2-4720-b8eb-c95de96205b6",
+    "data": [
+      {
+        "text": "Book a train from ",
+        "userDefined": false
+      },
+      {
+        "text": "Pune",
+        "meta": "@sys.geo-city",
+        "alias": "Origin",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "557a36a7-cc51-4ca0-81d4-2024df8fc270",
+    "data": [
+      {
+        "text": "Train",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "a32c7c97-2c58-470e-b4f4-e9ddc3fc2085",
+    "data": [
+      {
+        "text": "Train ticket",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "e1335569-7b3f-4f98-a8e8-717cc8eba214",
+    "data": [
+      {
+        "text": "Book a train",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

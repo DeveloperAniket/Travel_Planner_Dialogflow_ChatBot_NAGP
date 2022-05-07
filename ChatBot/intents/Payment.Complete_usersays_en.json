@@ -1,0 +1,28 @@
+[
+  {
+    "id": "d4328e2c-4f99-440c-b96f-bc5bae0270dd",
+    "data": [
+      {
+        "text": "Payment Completed",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "65925821-bbcf-4be6-84c5-6c3959e1b753",
+    "data": [
+      {
+        "text": "pay",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

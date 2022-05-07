@@ -1,0 +1,48 @@
+{
+  "id": "b6549884-8edb-4724-bfd6-45706e791a57",
+  "name": "Payment.Complete",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "PaymentComplete-followup",
+          "lifespan": 2
+        },
+        {
+          "name": "bookhotel_yes",
+          "lifespan": 5
+        },
+        {
+          "name": "bookhotel_no",
+          "lifespan": 5
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Payment done"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": true,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

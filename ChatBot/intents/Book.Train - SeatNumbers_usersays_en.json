@@ -1,0 +1,84 @@
+[
+  {
+    "id": "32ad1f72-7402-4595-a824-70c314bcd3d5",
+    "data": [
+      {
+        "text": "C 1",
+        "meta": "@TrainSeat",
+        "alias": "TrainSeat",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "773e9eba-78b3-454f-beea-98c84065d2b8",
+    "data": [
+      {
+        "text": "C3",
+        "meta": "@TrainSeat",
+        "alias": "TrainSeat",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "b0244ae3-2dd7-42c4-95a6-f238c77292af",
+    "data": [
+      {
+        "text": "Go for it",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "643f4de4-7d6b-449c-9f0c-a704b6ad3c2e",
+    "data": [
+      {
+        "text": "Yea",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "0f1eee8e-fad0-4faf-b7eb-a245f6d729c8",
+    "data": [
+      {
+        "text": "Yup",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "61ec900d-af0c-4fc2-acce-3bbda6431b72",
+    "data": [
+      {
+        "text": "Yes",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

@@ -1,0 +1,167 @@
+[
+  {
+    "id": "fd843e50-aa62-4389-b72c-f169187315bb",
+    "data": [
+      {
+        "text": "change date",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "e952f355-eed1-48c8-b101-a98ff3abbfb9",
+    "data": [
+      {
+        "text": "Train date",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "69f475ea-9f56-416a-b94a-c5776bcffe2e",
+    "data": [
+      {
+        "text": "Booking date",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "27ff5fae-2488-4514-b39e-83e52cc6f347",
+    "data": [
+      {
+        "text": "Book ok ",
+        "userDefined": false
+      },
+      {
+        "text": "today",
+        "meta": "@sys.date-time",
+        "alias": "TravelDate",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "3e7be19e-dc7c-4d50-b76e-0943ec01b1f8",
+    "data": [
+      {
+        "text": "Travel-Date",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "ef942fe7-d5a7-496c-888d-808f10f488c5",
+    "data": [
+      {
+        "text": "Enter your date",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "41f4ad34-4c28-4216-8ee7-a35996ff496b",
+    "data": [
+      {
+        "text": "Tomorrow",
+        "meta": "@sys.date-time",
+        "alias": "TravelDate",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "4335a4ec-f290-4160-84f5-1492844d1e8f",
+    "data": [
+      {
+        "text": "4th May,2022",
+        "meta": "@sys.date-time",
+        "alias": "TravelDate",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "08ef871b-0913-4f15-841d-f58e357b251f",
+    "data": [
+      {
+        "text": "book for ",
+        "userDefined": false
+      },
+      {
+        "text": "4th May, 2022",
+        "meta": "@sys.date-time",
+        "alias": "TravelDate",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "b71bc05b-4075-4ef6-af60-9317a893c794",
+    "data": [
+      {
+        "text": "My train date is ",
+        "userDefined": false
+      },
+      {
+        "text": "tomorrow",
+        "meta": "@sys.date-time",
+        "alias": "TravelDate",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "9a5cb403-9515-4978-8cb5-be60ed6fea26",
+    "data": [
+      {
+        "text": "select train date",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

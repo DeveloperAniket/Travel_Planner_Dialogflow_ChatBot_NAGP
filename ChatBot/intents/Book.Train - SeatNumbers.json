@@ -1,0 +1,125 @@
+{
+  "id": "4ee7a3d0-4936-4419-a6cd-5287bed34e1a",
+  "parentId": "c620f34e-9dcf-43a9-9603-d5b0fdc474fc",
+  "rootParentId": "c620f34e-9dcf-43a9-9603-d5b0fdc474fc",
+  "name": "Book.Train - SeatNumbers",
+  "auto": true,
+  "contexts": [
+    "BookTrain-followup",
+    "BookTrainBookTrain-SelectClass"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "BookTrain.BookTrain-SeatNumbers",
+      "affectedContexts": [
+        {
+          "name": "BookTrain-followup",
+          "lifespan": 5
+        },
+        {
+          "name": "bookhotel_yes",
+          "lifespan": 5
+        },
+        {
+          "name": "bookhotel_no",
+          "lifespan": 5
+        }
+      ],
+      "parameters": [
+        {
+          "id": "c930a778-16d9-4b45-835c-b5df134a084b",
+          "name": "TrainSeat",
+          "required": true,
+          "dataType": "@TrainSeat",
+          "value": "$TrainSeat",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "TrainSeat is missing"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "cd9f7610-61b0-4312-89ea-7fe85001d3c8",
+          "name": "Class",
+          "required": false,
+          "dataType": "@TrainClass",
+          "defaultValue": "#BookTrainBookTrain-SelectClass.Class",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "634bcd8f-a5f5-44de-b470-6117632995ea",
+          "name": "TravelDate",
+          "required": false,
+          "dataType": "@sys.date-time",
+          "value": "$TravelDate",
+          "defaultValue": "#BookTrain-followup.TravelDate",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "3b84a8cd-008d-4577-8b87-a4b6ba5b38e9",
+          "name": "Origin",
+          "required": false,
+          "dataType": "@sys.geo-city",
+          "value": "$Origin",
+          "defaultValue": "#BookTrain-followup.Origin",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "fd93bd43-4103-49e7-b02d-6e248b923b17",
+          "name": "Destination",
+          "required": false,
+          "dataType": "@sys.geo-city",
+          "value": "$Destination",
+          "defaultValue": "#BookTrain-followup.Destination",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": true,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

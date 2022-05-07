@@ -1,0 +1,208 @@
+[
+  {
+    "id": "5cc5eef3-7080-4e26-a3fd-3ca71a2a001c",
+    "data": [
+      {
+        "text": "Book a room in ",
+        "userDefined": false
+      },
+      {
+        "text": "Pune",
+        "meta": "@sys.geo-city",
+        "alias": "Destination",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "692be57e-9203-48a0-a71a-d506c966516b",
+    "data": [
+      {
+        "text": "Need a hotel in ",
+        "userDefined": false
+      },
+      {
+        "text": "Kolkata",
+        "meta": "@sys.geo-city",
+        "alias": "Destination",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "804a04e5-3ddd-425e-bc5d-0d68a8e37f58",
+    "data": [
+      {
+        "text": "reserve hotel",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "49b57726-f1ea-4d05-be40-1a5157de40ef",
+    "data": [
+      {
+        "text": "reserve hotel for ",
+        "userDefined": false
+      },
+      {
+        "text": "today",
+        "meta": "@sys.date",
+        "alias": "TravelDate",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "2f18201e-d1af-4277-aa65-b55763172947",
+    "data": [
+      {
+        "text": "book a hotel in ",
+        "userDefined": false
+      },
+      {
+        "text": "Mumbai",
+        "meta": "@sys.geo-city",
+        "alias": "Destination",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "44157abf-a1d6-4381-ab05-c2bb5fee7d67",
+    "data": [
+      {
+        "text": "Book a hotel ",
+        "userDefined": false
+      },
+      {
+        "text": "hyatt",
+        "meta": "@HotelName",
+        "alias": "HotelName",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "today",
+        "meta": "@sys.date",
+        "alias": "TravelDate",
+        "userDefined": true
+      },
+      {
+        "text": " in ",
+        "userDefined": false
+      },
+      {
+        "text": "Delhi",
+        "meta": "@sys.geo-city",
+        "alias": "Destination",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "edbec53c-4219-4727-8327-de431bba6fac",
+    "data": [
+      {
+        "text": "Book-Hotel",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "18a1e256-a48a-43f0-b1f4-3bdd41a6f18c",
+    "data": [
+      {
+        "text": "Hotel",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "3fd04de9-4a3a-49a5-b427-e6222b3d2b65",
+    "data": [
+      {
+        "text": "Hotel For me",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "b8e4ad8d-6795-4a2f-ad5f-417b663275b1",
+    "data": [
+      {
+        "text": "Book Hotel",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "d4431c02-f4bd-4ad2-91b1-3342db78730f",
+    "data": [
+      {
+        "text": "Book a Room",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "357fcf10-23b8-4d14-909a-29d5fa87f9f7",
+    "data": [
+      {
+        "text": "book a room",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

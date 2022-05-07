@@ -1,0 +1,106 @@
+{
+  "id": "12c59c06-2594-4da4-9248-93b068ec65c6",
+  "parentId": "c620f34e-9dcf-43a9-9603-d5b0fdc474fc",
+  "rootParentId": "c620f34e-9dcf-43a9-9603-d5b0fdc474fc",
+  "name": "Book.Train - SelectClass",
+  "auto": true,
+  "contexts": [
+    "BookTrain-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "BookTrain.BookTrain-SelectClass",
+      "affectedContexts": [
+        {
+          "name": "BookTrainBookTrain-SelectClass",
+          "lifespan": 5
+        }
+      ],
+      "parameters": [
+        {
+          "id": "68986694-4d2b-4d29-982b-7f2c2a3189ec",
+          "name": "Class",
+          "required": true,
+          "dataType": "@TrainClass",
+          "value": "$Class",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Which class do you want to travel?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "f5c0d67b-b41e-4944-81e6-6e30284a484a",
+          "name": "TravelDate",
+          "required": false,
+          "dataType": "@sys.date-time",
+          "value": "$TravelDate",
+          "defaultValue": "#BookTrain-followup.TravelDate",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "d82d6d5e-d498-4100-8b00-d57f1ad730f5",
+          "name": "Origin",
+          "required": false,
+          "dataType": "@sys.geo-city",
+          "value": "$Origin",
+          "defaultValue": "#BookTrain-followup.Origin",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "3c0e3ce3-5d28-4056-9d71-594dffe36b7b",
+          "name": "Destination",
+          "required": false,
+          "dataType": "@sys.geo-city",
+          "value": "$Destination",
+          "defaultValue": "#BookTrain-followup.Destination",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Do you want to select seat?  \n-Yes\n-NO"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": true,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

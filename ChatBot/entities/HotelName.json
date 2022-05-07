@@ -1,0 +1,9 @@
+{
+  "id": "35729bee-da0c-4cee-b916-ccdf88d6fc2e",
+  "name": "HotelName",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}

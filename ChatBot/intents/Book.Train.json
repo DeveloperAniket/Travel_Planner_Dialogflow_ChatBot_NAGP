@@ -1,0 +1,104 @@
+{
+  "id": "c620f34e-9dcf-43a9-9603-d5b0fdc474fc",
+  "name": "Book.Train",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "BookTrain-followup",
+          "lifespan": 10
+        },
+        {
+          "name": "BookTrain-followup-2",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "id": "3a0e86f4-f187-471a-8fdc-2f31bd7ca394",
+          "name": "Origin",
+          "required": true,
+          "dataType": "@sys.geo-city",
+          "value": "$Origin",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "What\u0027s the origin of the train?"
+            },
+            {
+              "lang": "en",
+              "value": "You boading station?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "0e11fdbb-3540-46fd-ae4c-06db53c61e00",
+          "name": "Destination",
+          "required": true,
+          "dataType": "@sys.geo-city",
+          "value": "$Destination",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "What\u0027s the destination of the train?"
+            },
+            {
+              "lang": "en",
+              "value": "What is your destination ?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "9159f6c5-7e51-4b51-be2e-022b8871ace5",
+          "name": "Class",
+          "required": false,
+          "dataType": "@TrainClass",
+          "defaultValue": "#BookTrainBookTrain-SelectClass.Class",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Travel-Date"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": true,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

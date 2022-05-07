@@ -1,0 +1,89 @@
+[
+  {
+    "id": "b79750b6-3c1b-4c4d-a0ca-ea957356caf0",
+    "data": [
+      {
+        "text": "Book in ",
+        "userDefined": false
+      },
+      {
+        "text": "Taj",
+        "meta": "@HotelName",
+        "alias": "HotelName",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "dd33503d-2bf2-4697-9145-d6bfe8130bd8",
+    "data": [
+      {
+        "text": "Go with ",
+        "userDefined": false
+      },
+      {
+        "text": "Taj",
+        "meta": "@HotelName",
+        "alias": "HotelName",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "9a350c62-c976-428e-8770-f4dbba359a8a",
+    "data": [
+      {
+        "text": "Select ",
+        "userDefined": false
+      },
+      {
+        "text": "Taj",
+        "meta": "@HotelName",
+        "alias": "HotelName",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "af03e01f-16a9-40f7-8bd3-d4ca90d700b0",
+    "data": [
+      {
+        "text": "Westin",
+        "meta": "@HotelName",
+        "alias": "HotelName",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "694773c2-f123-475c-99ac-ad5bcfb11a9b",
+    "data": [
+      {
+        "text": "Taj",
+        "meta": "@HotelName",
+        "alias": "HotelName",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

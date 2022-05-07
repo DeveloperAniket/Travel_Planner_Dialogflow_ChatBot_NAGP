@@ -1,0 +1,83 @@
+{
+  "id": "1a2da399-6d6e-49e3-a4db-861ab9713263",
+  "parentId": "c620f34e-9dcf-43a9-9603-d5b0fdc474fc",
+  "rootParentId": "c620f34e-9dcf-43a9-9603-d5b0fdc474fc",
+  "name": "Book.Train - ChangeDestination",
+  "auto": true,
+  "contexts": [
+    "BookTrain-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "BookTrain.BookTrain-ChangeDestination",
+      "affectedContexts": [
+        {
+          "name": "BookTrain-ChnageDestination-followup",
+          "lifespan": 5
+        }
+      ],
+      "parameters": [
+        {
+          "id": "06e29921-97c2-4760-86bc-279524beca94",
+          "name": "Destination",
+          "required": true,
+          "dataType": "@sys.geo-city",
+          "value": "$Destination",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Enter your new destination ...."
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "c3d1020b-98a7-4d97-af48-fa18c1b310d8",
+          "name": "Origin",
+          "required": true,
+          "dataType": "@sys.geo-city",
+          "value": "$Origiin",
+          "defaultValue": "#BookTrain-followup.Origin",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Enter Origin city."
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Travel-Date"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": true,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

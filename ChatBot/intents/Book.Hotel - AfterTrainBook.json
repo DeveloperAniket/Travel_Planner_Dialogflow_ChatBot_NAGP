@@ -1,0 +1,89 @@
+{
+  "id": "db141de1-554e-493a-921f-e4a38f2559fc",
+  "parentId": "3c105ef0-e7ef-49b3-9c0e-59c4a1fbb742",
+  "rootParentId": "3c105ef0-e7ef-49b3-9c0e-59c4a1fbb742",
+  "name": "Book.Hotel - AfterTrainBook",
+  "auto": true,
+  "contexts": [
+    "BookHotel-followup",
+    "BookTrain-Hotel-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "BookHotel.BookHotel-custom",
+      "affectedContexts": [
+        {
+          "name": "BookTrain-Hotel-followup",
+          "lifespan": 2
+        },
+        {
+          "name": "Train-Destination-Hotel-Yes",
+          "lifespan": 5
+        },
+        {
+          "name": "Train-Destination-Hotel-No",
+          "lifespan": 5
+        },
+        {
+          "name": "BookHotel-AfterTrainBook-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "id": "385f491b-f91e-4e88-bf5a-851b34e401dd",
+          "name": "Destination",
+          "required": false,
+          "dataType": "@sys.geo-city",
+          "value": "$Destination",
+          "defaultValue": "#BookTrain-Hotel-followup.trainDestination",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "d5cd8a42-2c43-4d9f-b4e6-fc5b1f9af5e6",
+          "name": "TravelDate",
+          "required": false,
+          "dataType": "@sys.date",
+          "defaultValue": "#BookTrain-Hotel-followup.trainTravelDate",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Do you want to book room for $Destination ?"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": true,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "BookHotel_After_Train_Book"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

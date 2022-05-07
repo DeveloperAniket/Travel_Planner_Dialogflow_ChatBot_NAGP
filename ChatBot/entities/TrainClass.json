@@ -1,0 +1,9 @@
+{
+  "id": "23a86e93-fbca-4930-8014-c054348e08d5",
+  "name": "TrainClass",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}

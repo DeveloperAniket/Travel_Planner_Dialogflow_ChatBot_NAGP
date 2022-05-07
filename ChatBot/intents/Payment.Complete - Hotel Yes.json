@@ -1,0 +1,47 @@
+{
+  "id": "6a058065-d1ef-4e57-8561-0f672e23266d",
+  "name": "Payment.Complete - Hotel Yes",
+  "auto": true,
+  "contexts": [
+    "bookhotel_yes",
+    "BookTrain-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "PaymentComplete.PaymentComplete-custom",
+      "affectedContexts": [
+        {
+          "name": "bookhotel_yes",
+          "lifespan": 5
+        },
+        {
+          "name": "BookTrain-followup",
+          "lifespan": 5
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Hotel Yes"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": true,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

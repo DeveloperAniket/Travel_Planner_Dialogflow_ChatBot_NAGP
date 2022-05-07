@@ -1,0 +1,87 @@
+{
+  "id": "fabef069-7a16-485b-a1d1-1bd887326052",
+  "parentId": "c620f34e-9dcf-43a9-9603-d5b0fdc474fc",
+  "rootParentId": "c620f34e-9dcf-43a9-9603-d5b0fdc474fc",
+  "name": "Book.Train - ChangeDate",
+  "auto": true,
+  "contexts": [
+    "BookTrain-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "BookTrain.BookTrain-ChangeDate",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "ceca82ba-1465-49e7-9d56-980827fb7373",
+          "name": "TravelDate",
+          "required": true,
+          "dataType": "@sys.date-time",
+          "value": "$TravelDate",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Enter your travel date?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "4e5b16e2-7714-4835-8753-d17ab316ef06",
+          "name": "Origin",
+          "required": false,
+          "dataType": "@sys.geo-city",
+          "value": "$Origin",
+          "defaultValue": "#BookTrain-followup.Origin",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "3b696eb8-427f-4048-b69e-21060586c1b6",
+          "name": "Destination",
+          "required": false,
+          "dataType": "@sys.geo-city",
+          "value": "$Destination",
+          "defaultValue": "#BookTrain-followup.Destination",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Train date is $TravelDate from $Origin to $Destination"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": true,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

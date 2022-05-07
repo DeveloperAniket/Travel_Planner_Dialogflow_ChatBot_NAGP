@@ -1,0 +1,49 @@
+[
+  {
+    "value": "EC",
+    "synonyms": [
+      "Economy",
+      "ECO",
+      "EC",
+      "NORMAL CLASS"
+    ]
+  },
+  {
+    "value": "1AC",
+    "synonyms": [
+      "1AC",
+      "First Class",
+      "1st Ac",
+      "FIRSTCLASSAC",
+      "FIRST AC",
+      "FIRSTAC",
+      "1 AC",
+      "1st"
+    ]
+  },
+  {
+    "value": "2AC",
+    "synonyms": [
+      "2AC",
+      "2 AC",
+      "Second AC",
+      "SecondAc",
+      "2nd Ac",
+      "second class",
+      "2ND"
+    ]
+  },
+  {
+    "value": "3AC",
+    "synonyms": [
+      "3RD",
+      "3 RD",
+      "third AC",
+      "3rd AC",
+      "3AC",
+      "3 AC",
+      "Third class Ac",
+      "Third Class AC"
+    ]
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "value": "TAJ",
+    "synonyms": [
+      "TAJ"
+    ]
+  },
+  {
+    "value": "Hyatt",
+    "synonyms": [
+      "Hyatt"
+    ]
+  },
+  {
+    "value": "Marriott",
+    "synonyms": [
+      "Marriott"
+    ]
+  },
+  {
+    "value": "Radisson Blu",
+    "synonyms": [
+      "Radisson Blu",
+      "Radisson"
+    ]
+  },
+  {
+    "value": "The Westin",
+    "synonyms": [
+      "The Westin",
+      "Westin"
+    ]
+  },
+  {
+    "value": "Le Méridien",
+    "synonyms": [
+      "Le Méridien",
+      "LeMéridien"
+    ]
+  }
+]

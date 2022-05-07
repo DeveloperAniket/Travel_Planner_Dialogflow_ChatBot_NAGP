@@ -1,0 +1,46 @@
+{
+  "id": "ad5d4cd6-2edd-459a-85c3-1c1d3e07d066",
+  "parentId": "db141de1-554e-493a-921f-e4a38f2559fc",
+  "rootParentId": "3c105ef0-e7ef-49b3-9c0e-59c4a1fbb742",
+  "name": "Book.Hotel - AfterTrainBook - No",
+  "auto": true,
+  "contexts": [
+    "BookTrain-Hotel-followup",
+    "Train-Destination-Hotel-No",
+    "BookHotel-AfterTrainBook-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "BookHotel.BookHotel-custom.BookHotel-AfterTrainBook-custom",
+      "affectedContexts": [
+        {
+          "name": "BookHotel-AfterTrainBook-No-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Train-Destination-Hotel-No"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

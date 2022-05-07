@@ -1,0 +1,89 @@
+{
+  "id": "dbfe0b47-0f03-432f-a5cf-9ff4f4d22d4d",
+  "parentId": "3c105ef0-e7ef-49b3-9c0e-59c4a1fbb742",
+  "rootParentId": "3c105ef0-e7ef-49b3-9c0e-59c4a1fbb742",
+  "name": "Book.Hotel - Select Hotel",
+  "auto": true,
+  "contexts": [
+    "BookHotel-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "BookHotel.BookHotel-custom",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "ac08cfa7-85a6-46b1-b2c2-d765a545f503",
+          "name": "HotelName",
+          "required": true,
+          "dataType": "@HotelName",
+          "value": "$HotelName",
+          "defaultValue": "#BookHotel-followup.HotelName",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Please select from the below available hotels?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "320a59e6-22bd-403e-8d89-f3d72421b1aa",
+          "name": "Destination",
+          "required": false,
+          "dataType": "@sys.geo-city",
+          "defaultValue": "#BookHotel-followup.Destination",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "fcba59f4-75b2-40d3-b3bc-1a0e75cfec86",
+          "name": "TravelDate",
+          "required": false,
+          "dataType": "@sys.date",
+          "defaultValue": "#BookHotel-followup.TravelDate",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Hotel booked"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": true,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "Book-Hotel-Select-Hotel"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}
