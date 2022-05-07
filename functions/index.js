@@ -48,7 +48,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         agent.add(new Suggestion('Change Destination'));
       }
       else {
-        getTrainTravelDateSuggestion(agent);
+        agent.add('For when do you want to book train?');
+        getTravelDateSuggestion(agent);
       }
     } else {
       getTrainTravelDateSuggestion(agent);
@@ -93,7 +94,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     }
   }
 
-  //mapped to Book.Train - SeatNumbers intent
+  //mapped to Book.Train - SeatNumbers intent 
   function bookTrainSeatNumbers(agent) {
     console.log(logColor, '//mapped to Book.Train - SeatNumbers intent');
     let selectedSeat = getTrainSeatNums(agent);
@@ -106,14 +107,13 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       getAllSeatNumber(agent);
     } else {
       console.log(logColor, selectedSeat);
-      bookTrainPayment(agent);
+      return bookTrainPayment(agent);
     }
   }
 
   //mapped to Book.Train - Payment intent
   function bookTrainPayment(agent) {
     console.log(logColor, '//mapped to Book.Train - Payment intent');
-    console.log(logColor, agent.parameters);
     agent.add(new Card({
       title: `Payment`,
       text: 'Please complete payment by clicking here',
@@ -128,12 +128,186 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   function paymentComplete(agent) {
     console.log(logColor, '//mapped to Payment.Complete intent');
     let tempBookingID = Math.floor(Math.random() * 90000) + 10000;
-    agent.add('Thank you for your payment! \nYour tickets have been booked and your bookingID is ' + tempBookingID);
+    agent.add('Thank you for your payment! \nYour tickets have been booked and your Booking ID is ' + tempBookingID);
     agent.add('Do you want to book hotel room also?');
+    let trainContext = agent.getContext('booktrain-followup')
+    let params = trainContext && trainContext.parameters ? trainContext.parameters : {};
+    agent.setContext(
+      {
+        name: 'Train_Ticket_Context_Expiry',
+        lifespan: 5,
+        parameters: {
+          trainDestination: params['Destination'],
+          trainTravelDate: params['TravelDate'],
+          trainBookTime: new Date(),
+        }
+      });
     yesNoSuggestion(agent);
   }
 
+  //mapped to Payment.Complete - Hotel No intent
+  function paymentCompleteButHotelNo(agent) {
+    console.log(logColor, '//mapped to Payment.Complete - Hotel No intent');
+    agent.add('Have a great journey !!!!');
+    agent.add(new Suggestion('Start over'));
+  }
 
+  //mapped to Payment.Complete - Hotel yes intent
+  function paymentCompleteButHotelYes(agent) {
+    console.log(logColor, '//mapped to Payment.Complete - Hotel Yes intent');
+    agent.add('Have a great journey !!!!');
+    agent.add(new Suggestion('Start over'));
+  }
+
+  //mapped to Book.Hotel intent
+  function bookHotel(agent) {
+    console.log(logColor, '//mapped to Book.Hotel');
+    let callDeafult = true;
+    let trainContext = agent.getContext('train_ticket_context_expiry')
+    let params = trainContext && trainContext.parameters ? trainContext.parameters : null;
+    if (params) {
+      let destCity = params['trainDestination'];
+      let date = params['trainTravelDate'];
+      let bookingDateTime = params['trainBookTime'] ? new Date(params['trainBookTime']) : null;
+
+      let calCulateExpiryDate = bookingDateTime ? bookingDateTime.setSeconds(bookingDateTime.getSeconds() + 20) : null;
+      if (calCulateExpiryDate && calCulateExpiryDate > new Date()) {
+        agent.setContext(
+          {
+            name: 'BookTrain-Hotel-followup',
+            lifespan: 5,
+            parameters: {
+              trainDestination: destCity,
+              trainTravelDate: date,
+            }
+          });
+        console.log('BookHotel_After_Train_Book')
+        agent.setFollowupEvent('BookHotel_After_Train_Book');
+        callDeafult = false;
+      }
+    }
+    if (callDeafult) {
+      agent.setFollowupEvent('BookHotel_DefaultBooking');
+    }
+
+  }
+
+  //mapped to Book.Hotel - DefaultBooking intent
+  function BookHotelDefaultFlow(agent) {
+    console.log(logColor, '//Book.Hotel - DefaultBooking');
+    let date = getParameterTravelDate();
+    let destCity = getDestinationCity();
+    let hotel = getParameterHotelName();
+    let fulfillmentText = getfulfillmentText();
+    if (!destCity && !date && !hotel) {
+      agent.add(fulfillmentText);
+      addCitiesToAgent(agent);
+    }
+    else if (destCity && !date && !hotel) {
+      agent.add(fulfillmentText);
+      getTravelDateSuggestion(agent);
+    } else {
+      bookHotelSelectHotel(agent)
+    }
+  }
+
+  //mapped to Book.Hotel - Select Hotel
+  function bookHotelSelectHotel(agent) {
+    console.log(logColor, '//Book.Hotel - Select Hotel');
+    let date = getParameterTravelDate();
+    let destCity = getDestinationCity();
+    let hotel = getParameterHotelName();
+    if (!destCity && !date) {
+      agent.setFollowupEvent('BookHotel_DefaultBooking');
+    } else if (destCity && date && !hotel) {
+      getHotelList(agent);
+    } else {
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      let dateText = new Date(date).toLocaleDateString(options)
+      agent.add(new Card({
+        title: `Hotel Booked`,
+        text: `${hotel} Room booked for ${destCity} on ${dateText}`,
+        imageUrl: getHotelLogo(hotel),
+      }));
+      agent.add(new Suggestion('Start over'));
+    }
+  }
+
+  //mapped to Book.Hotel - AfterTrainBook
+  function bookHotelAfterTrainBookFlow(agent) {
+    console.log(logColor, '//Book.Hotel - AfterTrainBook');
+    let des = getDestinationCity();
+    agent.add(`Do you want to book room for ${des} ?`);
+    yesNoSuggestion(agent);
+  }
+
+  //mapped to Book.Hotel - AfterTrainBook - Yes
+  function bookHotelAfterTrainBookYes(agent) {
+    console.log(logColor, '//Book.Hotel - AfterTrainBook - Yes');
+    bookHotelSelectHotel(agent)
+  }
+
+  //mapped to Book.Hotel - AfterTrainBook - No
+  function bookHotelAfterTrainBookNo(agent) {
+    console.log(logColor, '//Book.Hotel - AfterTrainBook - No ..');
+    agent.setContext(
+      {
+        name: 'reset-train-followup',
+        lifespan: '1',
+        parameters: {
+          reset: true
+        }
+      });
+    agent.setFollowupEvent('BookHotel_DefaultBooking');
+  }
+  //--------------------------------------Helper Method--------------------------------------------------//
+
+  function getHotelLogo(hotelTitle) {
+    let hotelObj = getHotelObject();
+    let foundObj = hotelObj.find(x => x.title.toLocaleLowerCase() === hotelTitle.toLocaleLowerCase());
+    return foundObj ? foundObj.imageurl : "";
+  }
+  function getHotelList(agent) {
+    agent.add('Please select from the below available hotels.');
+    addHotelSuggestionToAgent(agent)
+  }
+  function addHotelSuggestionToAgent(agent) {
+    let hotelObj = getHotelObject();
+
+    let hotels = hotelObj.map(a => a.title);
+
+    hotels.forEach(hotel => {
+      agent.add(new Suggestion(hotel))
+    });
+  }
+  function getHotelObject() {
+    return [
+      {
+        title: 'Le Méridien',
+        imageurl: 'https://marriottnews.brightspotcdn.com/dims4/default/4465e1d/2147483647/strip/true/crop/400x400+0+0/resize/400x400!/quality/90/?url=https%3A%2F%2Fmarriottnews.brightspotcdn.com%2Fb9%2F8c%2F1b6a4cb4471c978c85ecf4e9adb7%2Flogo-le-meridien.png',
+      },
+      {
+        title: 'The Westin',
+        imageurl: 'https://www.nicepng.com/png/detail/353-3530427_westin-logo-png-transparent-westin-hotel-logo-png.png',
+      },
+      {
+        title: 'Radisson Blu',
+        imageurl: 'https://insights.ehotelier.com/wp-content/uploads/sites/6/2018/05/radisson-blu-logo.jpg',
+      },
+      {
+        title: 'Marriott',
+        imageurl: 'https://media-exp1.licdn.com/dms/image/C510BAQEvh-W2MAJcPA/company-logo_200_200/0?e=2159024400&v=beta&t=t4XEtGlssF49u_HEgOX_baID9DbFq1o801GQFvBH35o',
+      },
+      {
+        title: 'Hyatt',
+        imageurl: 'https://mms.businesswire.com/media/20210907005288/en/671263/5/HY_L001c-R-color-RGB.jpg',
+      },
+      {
+        title: 'Taj',
+        imageurl: 'https://www.nicepng.com/png/detail/262-2621445_taj-hotel-logo-png.png',
+      },
+    ];
+  }
   function getTrainSeatNums(agent) {
 
     let arr = [];
@@ -192,8 +366,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     agent.add(new Suggestion('Yes'));
     agent.add(new Suggestion('No'));
   }
-  function getTrainTravelDateSuggestion(agent) {
-    agent.add('For when do you want to book train?');
+  function getTravelDateSuggestion(agent) {
     addDatesSuggestionToAgent(agent);
     agent.add(new Suggestion(`Travel Date`));
   }
@@ -242,7 +415,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     return query.parameters['Destination'];
   }
   function addWelcomeResponseAndOptions(agent) {
-    agent.add(`Hi, I am your travel planner, you can ask me to book your train-ticket or hotel room`);
+    agent.add(`Hi, I am your travel planner, you can ask me to book your train - ticket or hotel room`);
     agent.add(new Suggestion(`Book a train ticket`));
     agent.add(new Suggestion(`Book a room`));
   }
@@ -251,6 +424,9 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   }
   function getTrainClass() {
     return query.parameters['Class'];
+  }
+  function getParameterHotelName() {
+    return query.parameters['HotelName'];;
   }
 
   // Run the proper function handler based on the matched Dialogflow intent name
@@ -263,9 +439,18 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   intentMap.set('Book.Train - SelectClass', bookTrainClass);
   intentMap.set('Book.Train - SeatNumbers', bookTrainSeatNumbers);
   intentMap.set('Book.Train - Payment', bookTrainPayment);
+
   intentMap.set('Payment.Complete', paymentComplete);
+  intentMap.set('Payment.Complete - Hotel No', paymentCompleteButHotelNo);
+  intentMap.set('Payment.Complete - Hotel Yes', paymentCompleteButHotelYes);
 
 
+  intentMap.set('Book.Hotel', bookHotel);
+  intentMap.set('Book.Hotel - DefaultBooking', BookHotelDefaultFlow);
+  intentMap.set('Book.Hotel - AfterTrainBook', bookHotelAfterTrainBookFlow);
+  intentMap.set('Book.Hotel - Select Hotel', bookHotelSelectHotel);
+  intentMap.set('Book.Hotel - AfterTrainBook - yes', bookHotelAfterTrainBookYes);
+  intentMap.set('Book.Hotel - AfterTrainBook - No', bookHotelAfterTrainBookNo);
 
   // intentMap.set('your intent name here', googleAssistantHandler);
   agent.handleRequest(intentMap);
@@ -275,7 +460,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
 
   // // Uncomment and edit to make your own intent handler
-  // // uncomment `intentMap.set('your intent name here', yourFunctionHandler);`
+  // // uncomment `intentMap.set('your intent name here', yourFunctionHandler); `
   // // below to get this function to be run when a Dialogflow intent is matched
   // function yourFunctionHandler(agent) {
   //   agent.add(`This message is from Dialogflow's Cloud Functions for Firebase editor!`);
