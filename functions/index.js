@@ -196,7 +196,6 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
               trainTravelDate: date,
             }
           });
-        console.log('BookHotel_After_Train_Book')
         agent.setFollowupEvent('BookHotel_After_Train_Book');
         callDeafult = false;
       }
