@@ -155,8 +155,18 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   //mapped to Payment.Complete - Hotel yes intent
   function paymentCompleteButHotelYes(agent) {
     console.log(logColor, '//mapped to Payment.Complete - Hotel Yes intent');
-    agent.add('Have a great journey !!!!');
-    agent.add(new Suggestion('Start over'));
+    let trainContext = agent.getContext('booktrain-followup')
+    let params = trainContext && trainContext.parameters ? trainContext.parameters : {};
+    agent.setContext(
+      {
+        name: 'BookHotel-followup',
+        lifespan: 5,
+        parameters: {
+          Destination: params['Destination'],
+          TravelDate: params['TravelDate']
+        }
+      });
+    agent.setFollowupEvent('Book-Hotel-Select-Hotel');
   }
 
   //mapped to Book.Hotel intent
@@ -218,6 +228,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     let destCity = getDestinationCity();
     let hotel = getParameterHotelName();
     if (!destCity && !date) {
+      callBookHotel_DefaultBooking(agent);
       agent.setFollowupEvent('BookHotel_DefaultBooking');
     } else if (destCity && date && !hotel) {
       getHotelList(agent);
@@ -250,18 +261,22 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   //mapped to Book.Hotel - AfterTrainBook - No
   function bookHotelAfterTrainBookNo(agent) {
     console.log(logColor, '//Book.Hotel - AfterTrainBook - No ..');
+    callBookHotel_DefaultBooking(agent);
+  }
+  //--------------------------------------Helper Method--------------------------------------------------//
+
+  function callBookHotel_DefaultBooking(agent) {
     agent.setContext(
       {
-        name: 'reset-train-followup',
-        lifespan: '1',
+        name: 'BookHotel-followup',
+        lifespan: '3',
         parameters: {
-          reset: true
+          Destination: '',
+          TravelDate: ''
         }
       });
     agent.setFollowupEvent('BookHotel_DefaultBooking');
   }
-  //--------------------------------------Helper Method--------------------------------------------------//
-
   function getHotelLogo(hotelTitle) {
     let hotelObj = getHotelObject();
     let foundObj = hotelObj.find(x => x.title.toLocaleLowerCase() === hotelTitle.toLocaleLowerCase());
@@ -296,7 +311,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       },
       {
         title: 'Marriott',
-        imageurl: 'https://media-exp1.licdn.com/dms/image/C510BAQEvh-W2MAJcPA/company-logo_200_200/0?e=2159024400&v=beta&t=t4XEtGlssF49u_HEgOX_baID9DbFq1o801GQFvBH35o',
+        imageurl: 'https://1000logos.net/wp-content/uploads/2017/08/Color-Marriott-logo.jpg',
       },
       {
         title: 'Hyatt',
