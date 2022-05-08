@@ -1,30 +1,26 @@
 {
-  "id": "c620f34e-9dcf-43a9-9603-d5b0fdc474fc",
-  "name": "Book.Train",
+  "id": "6fe7fce9-fec8-4f9e-94af-276dbc05eabb",
+  "parentId": "c620f34e-9dcf-43a9-9603-d5b0fdc474fc",
+  "rootParentId": "c620f34e-9dcf-43a9-9603-d5b0fdc474fc",
+  "name": "Book.Train - Origin to Destination",
   "auto": true,
-  "contexts": [],
+  "contexts": [
+    "BookTrain-followup",
+    "BookTrain-followup-2"
+  ],
   "responses": [
     {
       "resetContexts": false,
-      "action": "",
-      "affectedContexts": [
-        {
-          "name": "BookTrain-followup",
-          "lifespan": 10
-        },
-        {
-          "name": "BookTrain-followup-2",
-          "lifespan": 2
-        }
-      ],
+      "action": "BookTrain.BookTrain-custom",
+      "affectedContexts": [],
       "parameters": [
         {
-          "id": "33130ef1-96e0-4e4e-b1c7-a7e49dfc70a7",
+          "id": "3d11b898-de18-49ce-9b1e-7c7be3479786",
           "name": "Origin",
-          "required": false,
+          "required": true,
           "dataType": "@sys.geo-city",
           "value": "$Origin",
-          "defaultValue": "",
+          "defaultValue": "#BookTrain-followup.Origin",
           "isList": false,
           "prompts": [
             {
@@ -38,12 +34,11 @@
           "outputDialogContexts": []
         },
         {
-          "id": "2923fd68-cc8e-4c91-b4dc-1624a5bc2a19",
+          "id": "44aaa0e6-7de1-42cc-9b42-b605bdae8abd",
           "name": "Destination",
-          "required": false,
+          "required": true,
           "dataType": "@sys.geo-city",
-          "value": "$Destination",
-          "defaultValue": "",
+          "defaultValue": "#BookTrain-followup.Destination",
           "isList": false,
           "prompts": [
             {
@@ -51,19 +46,6 @@
               "value": "What\u0027s the destination of the train?"
             }
           ],
-          "promptMessages": [],
-          "noMatchPromptMessages": [],
-          "noInputPromptMessages": [],
-          "outputDialogContexts": []
-        },
-        {
-          "id": "83f7f39b-577f-4f0e-960f-c83ba1c59366",
-          "name": "Class",
-          "required": false,
-          "dataType": "@TrainClass",
-          "defaultValue": "#BookTrainBookTrain-SelectClass.Class",
-          "isList": false,
-          "prompts": [],
           "promptMessages": [],
           "noMatchPromptMessages": [],
           "noInputPromptMessages": [],
@@ -76,9 +58,6 @@
           "title": "",
           "textToSpeech": "",
           "lang": "en",
-          "speech": [
-            "Travel-Date"
-          ],
           "condition": ""
         }
       ],
@@ -89,7 +68,11 @@
   "webhookUsed": true,
   "webhookForSlotFilling": true,
   "fallbackIntent": false,
-  "events": [],
+  "events": [
+    {
+      "name": "book-train-followup"
+    }
+  ],
   "conditionalResponses": [],
   "condition": "",
   "conditionalFollowupEvents": []

@@ -1,0 +1,41 @@
+{
+  "id": "f902b616-9bb0-4b5d-a0b2-ef5a430541de",
+  "parentId": "c620f34e-9dcf-43a9-9603-d5b0fdc474fc",
+  "rootParentId": "c620f34e-9dcf-43a9-9603-d5b0fdc474fc",
+  "name": "Book.Train - Location permisson",
+  "auto": true,
+  "contexts": [
+    "BookTrain-followup",
+    "BookTrain-followup-2"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "BookTrain.BookTrain-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "actions_intent_PERMISSION"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

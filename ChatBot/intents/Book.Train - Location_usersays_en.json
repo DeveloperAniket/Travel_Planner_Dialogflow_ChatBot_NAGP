@@ -1,0 +1,41 @@
+[
+  {
+    "id": "33d4d937-d0e7-40de-87fc-fe026e52d7a0",
+    "data": [
+      {
+        "text": "Detect Location",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "fbd54337-644b-4008-b60e-7c487fb7a543",
+    "data": [
+      {
+        "text": "Detect Client Location",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "9af616b2-7cde-4313-9b63-999db8d6444f",
+    "data": [
+      {
+        "text": "Detect My Location",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]
