@@ -4,12 +4,13 @@
 //For local debug follow below steps:
 // 1. run npm run serve
 // 2. ngrock http 5001
-// 3. https://<ngrock.io url>/nagp-session2-demo1-tiwv/us-central1/dialogflowFirebaseFulfillment
+// 3. https://<ngrock.io url>/nagp-assignment/us-central1/dialogflowFirebaseFulfillment
 'use strict';
 
 const functions = require('firebase-functions');
 const { WebhookClient } = require('dialogflow-fulfillment');
 const { Suggestion, Card } = require('dialogflow-fulfillment');
+const { Permission } = require('actions-on-google');
 
 process.env.DEBUG = 'dialogflow:debug'; // enables lib debugging statements
 
@@ -31,9 +32,26 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     agent.add(`I'm sorry, can you try again?`);
   }
 
-  //Mapped with Book.Train intent
-  function bookTrain(agent) {
+  //mapped to Book.Train intent
+  function bookTrainStartUp(agent) {
     console.log(logColor, '//mapped to Book.Train intent');
+    let sourceCity = getOriginCity();
+    let destinationCity = getDestinationCity();
+    if (!sourceCity) {
+      agent.add('What\'s the origin of the train please?');
+      if (agent.requestSource === agent.ACTIONS_ON_GOOGLE) {
+        console.log(logColor, '//Added option Detect Location for ACTIONS_ON_GOOGLE');
+        agent.add(new Suggestion('Detect Location'));
+      }
+      addCitiesToAgent(agent, destinationCity);
+    } else {
+      bookTrainDestinationFollowUp(agent);
+    }
+  }
+
+  //Mapped with Book.Train - Origin to Destination intent
+  function bookTrainDestinationFollowUp(agent) {
+    console.log(logColor, '//mapped to Book.Train - Origin to Destination intent');
     let date = getParameterTravelDate();
     let sourceCity = getOriginCity();
     let destinationCity = getDestinationCity();
@@ -59,7 +77,6 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     } else {
       getTrainTravelDateSuggestion(agent);
     }
-
   }
 
   //mapped to Book.Train - ChangeDate intent
@@ -267,6 +284,51 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     console.log(logColor, '//Book.Hotel - AfterTrainBook - No ..');
     callBookHotel_DefaultBooking(agent);
   }
+
+  //mapped to Book.Train - Location intent
+  function detectClientLocation(agent) {
+    if (agent.requestSource === agent.ACTIONS_ON_GOOGLE) {
+      console.log(logColor, '//Book.Train - Location');
+      const conv = agent.conv();
+      conv.data.requestedPermission = 'DEVICE_PRECISE_LOCATION';
+      conv.ask(new Permission({
+        context: 'detect your location',
+        permissions: conv.data.requestedPermission,
+      }));
+      agent.add(conv);
+    } else {
+      agent.add('Detect location not available in you platform.')
+      agent.add(new Suggestion('Start over'));
+    }
+  }
+
+  //mapped to Book.Train - Location permisson intent
+  function approvedPermisson(agent) {
+    console.log(logColor, '//Book.Train - Location permisson');
+    const conv = agent.conv();
+    let originCity = '';
+    if (conv.device.location && conv.device.location.city) {
+      originCity = conv.device.location.city;
+    }
+    let trainContext = agent.getContext('booktrain-followup')
+    let params = trainContext && trainContext.parameters ? trainContext.parameters : {};
+    agent.setContext(
+      {
+        name: 'booktrain-followup-2',
+        lifespan: '15',
+        parameters: {
+          Origin: originCity,
+          Destination: params['Destination'],
+          TravelDate: params['TravelDate'],
+        }
+      });
+    console.log(agent.contexts);
+    // agent.setFollowupEvent('book-train-followup');
+    agent.add('Your city detected.')
+    agent.add(new Suggestion(originCity));
+    agent.add(new Suggestion('Start over'));
+  }
+
   //--------------------------------------Helper Method--------------------------------------------------//
 
   function callBookHotel_DefaultBooking(agent) {
@@ -452,12 +514,21 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   let intentMap = new Map();
   intentMap.set('Default Welcome Intent', welcome);
   intentMap.set('Default Fallback Intent', fallback);
-  intentMap.set('Book.Train', bookTrain);
-  intentMap.set('Book.Train - ChangeDestination', bookTrain);
+
+  intentMap.set('Book.Train', bookTrainStartUp);
+  intentMap.set('Book.Train - Origin to Destination', bookTrainDestinationFollowUp);
+
+  intentMap.set('Book.Train - ChangeDestination', bookTrainDestinationFollowUp);
   intentMap.set('Book.Train - ChangeDate', bookTrainSelectDate);
   intentMap.set('Book.Train - SelectClass', bookTrainClass);
   intentMap.set('Book.Train - SeatNumbers', bookTrainSeatNumbers);
   intentMap.set('Book.Train - Payment', bookTrainPayment);
+
+
+
+  intentMap.set('Book.Train - Location', detectClientLocation);
+  intentMap.set('Book.Train - Location permisson', approvedPermisson);
+
 
   intentMap.set('Payment.Complete', paymentComplete);
   intentMap.set('Payment.Complete - Hotel No', paymentCompleteButHotelNo);

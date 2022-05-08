@@ -9,7 +9,7 @@
     "node": "10"
   },
   "scripts": {
-    "serve": "firebase emulators:start --only functions --project nagp-session2-demo1-tiwv",
+    "serve": "firebase emulators:start --only functions --project nagp-assignment",
     "start": "firebase serve --only functions:dialogflowFirebaseFulfillment",
     "deploy": "firebase deploy --only functions:dialogflowFirebaseFulfillment",
     "logs": "firebase functions:log",
