@@ -182,7 +182,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     agent.setContext(
       {
         name: 'BookHotel-followup',
-        lifespan: 5,
+        lifespan: '5',
         parameters: {
           Destination: params['Destination'],
           TravelDate: params['TravelDate']
@@ -207,7 +207,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         agent.setContext(
           {
             name: 'BookTrain-Hotel-followup',
-            lifespan: 5,
+            lifespan: '5',
             parameters: {
               trainDestination: destCity,
               trainTravelDate: date,
@@ -276,7 +276,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   //mapped to Book.Hotel - AfterTrainBook - Yes
   function bookHotelAfterTrainBookYes(agent) {
     console.log(logColor, '//Book.Hotel - AfterTrainBook - Yes');
-    bookHotelSelectHotel(agent)
+    agent.setFollowupEvent('Book-Hotel-Select-Hotel');
   }
 
   //mapped to Book.Hotel - AfterTrainBook - No
